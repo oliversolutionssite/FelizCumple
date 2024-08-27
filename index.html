@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feliz Cumpleaños</title>
+    <style>
+      /* @import url("https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"); */
+      @import url("https://fonts.googleapis.com/css2?family=Grey+Qo&display=swap");
+      @import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Beginner:wght@400..700&family=Grey+Qo&family=Kaushan+Script&family=Lobster&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+
+      * {
+        transition: all 0.2s ease-in-out;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #e5989b;
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        margin: 0;
+        color: #fff;
+        padding: 1em;
+      }
+
+      h1 {
+        font-family: "Grey Qo", cursive;
+        font-size: 35px;
+        margin: 5px;
+        color: #a4133c;
+      }
+
+      .card {
+        background: #fdfdfd;
+        border-radius: 20px;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 1em;
+        overflow: hidden;
+        width: 100%;
+        max-width: 600px;
+        height: auto;
+        visibility: hidden;
+      }
+
+      .start-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .start-container img {
+        width: 60%;
+        /* max-width: 250px; */
+        border-radius: 20px;
+        box-shadow: 0 6px 30px rgba(0, 0, 0, 0.3);
+      }
+
+      .start-container button {
+        margin-top: 25px;
+        padding: 12px 24px;
+        font-size: 20px;
+        cursor: pointer;
+        background-color: #e63946;
+        color: #fff;
+        border: none;
+        border-radius: 30px;
+      }
+
+      img.birthday {
+        width: 100%;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 0px;
+        border-radius: 10px;
+      }
+
+      .text {
+        color: #333;
+        font-size: 15px;
+        font-family: "Lobster", sans-serif;
+        color: #002855;
+      }
+
+      .muted {
+        opacity: 0.8;
+        margin-top: 1em;
+      }
+
+      .space {
+        height: 50px;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      body.play-music {
+        animation: fadeIn 2s ease-in-out;
+      }
+
+      @media only screen and (max-width: 600px) {
+        .card {
+          padding: 10px;
+          width: 100%;
+        }
+
+        .text {
+          font-size: 15px;
+        }
+
+        .space {
+          height: 1px;
+        }
+
+        img.birthday {
+          max-width: 150px;
+        }
+      }
+
+      audio {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="start-container">
+      <img src="img1.jpg" alt="Feliz Cumpleaños" />
+      <button id="start-button">🎁 ¡Click Aquí! 🎁</button>
+    </div>
+
+    <div class="card">
+      <img src="img.png" alt="Feliz Cumpleaños" class="birthday" />
+      <div class="text">
+        <h1>Feliz Cumpleaños Zenayda 🎂</h1>
+        <p>
+          Hoy celebramos no solo el día en que naciste, sino también la
+          increíble persona que eres y todo lo que has logrado. Espero de todo
+          corazón que este nuevo año de vida te traiga aún más éxitos y que
+          todos tus sueños se hagan realidad.<br /><br />Deseo que cada paso que
+          des te acerque a tus metas, y que cada desafío que enfrentes se
+          convierta en una oportunidad para crecer y brillar. Que la vida te
+          siga sonriendo con oportunidades increíbles, rodeándote de amor,
+          alegría y momentos inolvidables. <br /><br />
+          Eres una persona talentosa, fuerte y decidida, y no tengo ninguna duda
+          de que lograrás todo lo que te propongas. Sigue persiguiendo tus
+          sueños con la misma pasión y determinación que siempre has tenido.
+          <br /><br />
+          ¡Te envío un abrazo enorme y mis mejores deseos para un año lleno de
+          éxitos, felicidad y realizaciones! 🌟 🎂🎉🌹
+        </p>
+      </div>
+      <div class="space"></div>
+      <!-- <audio loop id="background-audio" src="For_You.mp3"></audio> -->
+      <audio loop id="background-audio" src="audio.mp3"></audio>
+    </div>
+    <script>
+      const startButton = document.getElementById("start-button");
+      const card = document.querySelector(".card");
+      const audio = document.getElementById("background-audio");
+
+      startButton.addEventListener("click", () => {
+        card.style.visibility = "visible";
+        card.style.opacity = "1";
+        document.body.classList.add("play-music");
+        audio.play();
+        startButton.parentElement.style.display = "none";
+      });
+    </script>
+  </body>
+</html>
